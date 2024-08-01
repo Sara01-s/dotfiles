@@ -1,27 +1,25 @@
 # dotfiles
 
-This repository contains the dotfiles for my system
-
-## Requirements
-
-Ensure you have the following installed on your system
-
-### Dependencies
-```
-$ sudo pacman -S git stow
-```
+This repository contains the dotfiles for my system.
 
 ## Installation
 
-First, check out the dorgiles repo in your $HOME directory using git clone
+First, make sure you have git installed.
+
+```
+$ sudo pacman -S git
+```
+
+Then, clone this repository in your $HOME directory using:
 
 ```
 $ git clone git@github.com/Sara01-s/dotfiles.git
-$ cd dotfiles
 ```
 
-then use GNU stow to create symlinks
+And finally, enter the repository directory and run the `install.sh` script.
 
 ```
-$ stow .
+$ cd ~/dotfiles/
+$ chmod +x install.sh
+$ ./install.sh
 ```
