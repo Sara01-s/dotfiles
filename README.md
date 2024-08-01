@@ -13,6 +13,12 @@ $ sudo pacman -S git
 Then, clone this repository in your $HOME directory using:
 
 ```
+$ cd
+
+# http
+$ git clone https://github.com/Sara01-s/dotfiles.git
+
+# ssh
 $ git clone git@github.com/Sara01-s/dotfiles.git
 ```
 
