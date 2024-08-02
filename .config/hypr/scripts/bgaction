@@ -1,0 +1,49 @@
+#!/usr/bin/bash
+
+swww query || swww init
+
+wallpapers_dir="$HOME/.config/hypr/wallpapers/"
+wallpapers=()
+
+while IFS= read -r wallpaper; do
+	wallpapers+=("$wallpaper")
+done < <(ls "$wallpapers_dir")
+
+echo ""
+echo "Found wallpapers:"
+for wallpaper in "${wallpapers[@]}"; do
+  	echo "$wallpaper"
+done
+
+num_wallpapers=${#wallpapers[@]}
+rand=$(( RANDOM % num_wallpapers ))
+rnd_wallpaper=${wallpapers[$rand]}
+
+rnd_x=$(echo "scale=5; $RANDOM / 32768" | bc)
+rnd_y=$(echo "scale=5; $RANDOM / 32768" | bc)
+
+transitions=("wipe" "grow" "outer" "wave")
+rnd_transition=${transitions[$(((RANDOM % ${#transitions[@]})))]}
+
+echo ''
+echo "chosen transition: $rnd_transition"
+echo ''
+echo "chosen wallpaper: $rnd_wallpaper"
+
+final_cmd="swww img \"$wallpapers_dir/$rnd_wallpaper\" 	\
+		--transition-fps 120 							\
+		--transition-type \"$rnd_transition\" 			\
+		--transition-step 120 							\
+		--transition-angle 30 							\
+		--transition-duration 0.75"
+
+if [ "$rnd_transition" == "outer" ] || [ "$rnd_transition" == "grow" ]; then
+    echo "random x: $rnd_x"
+    echo "random y: $rnd_y"
+    final_cmd="$final_cmd --transition-pos $rnd_x,$rnd_y"
+fi
+
+echo $final_cmd
+
+eval $final_cmd
+

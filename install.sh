@@ -21,8 +21,7 @@ log() {
 }
 
 log_desc() {
-	echo -e "$LIGHT_GRAY[DESC] $DARK_GRAY$1"
-	echo -e $CLEAR
+	echo -e "$LIGHT_GRAY[DESC] $DARK_GRAY$1$CLEAR"
 }
 
 #######################################################################################
@@ -48,7 +47,7 @@ else
 	mkdir $REPS_DIR
 fi
 
-log "All directoires created.\n"
+log "All directories created.\n"
 sleep 1
 
 big_log "Installing packages..."
@@ -73,7 +72,7 @@ install() {
 		log "$1 already installed."
 	else
 		log "Intalling $1..."
-		yay -S $1 && "$1 Installed."
+		yay -S --noconfirm $1 && log "$1 Installed."
 	fi
 
 	log_desc "$2"
@@ -88,4 +87,4 @@ install eza 		"eza is a replacement for ls, primarily used for showing icons."
 install bat			"bat is a replacement for cat, it shows files in a more organized way."
 install firefox		"firefox is a web browser."
 install thunar		"thunar is a GUI file explorer."
-
+install viu			"viu is used to view images and gif inside the terminal"
