@@ -35,7 +35,7 @@ final_cmd="swww img \"$wallpapers_dir/$rnd_wallpaper\" 	\
 		--transition-type \"$rnd_transition\" 			\
 		--transition-step 120 							\
 		--transition-angle 30 							\
-		--transition-duration 0.75"
+		--transition-duration 1"
 
 if [ "$rnd_transition" == "outer" ] || [ "$rnd_transition" == "grow" ]; then
     echo "random x: $rnd_x"
