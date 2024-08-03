@@ -10,5 +10,39 @@ return {
 
     config = function()
         vim.keymap.set('n', '<C-b>', ':Neotree filesystem reveal left<CR>', {})
+
+		require("neo-tree").setup({
+			event_handlers = {
+			{
+				event = "file_opened",
+				handler = function(file_path)
+				  	--auto close
+				  	require("neo-tree.command").execute({ action = "close" })
+				end,
+			}
+		},
+
+		close_if_last_window = true,
+
+		default_component_configs = {
+			git_status = {
+			  	symbols = {
+					added = "✚",
+					modified = "",
+					deleted = "✘",
+					ignored = "",
+					untracker = "U"
+			  	},
+			},
+		},
+
+		filesystem = {
+			filtered_items = {
+			  	visible = true,
+			  	hide_dotfiles = false,
+			  	hide_gitignored = false,
+			},
+		},
+	})
     end
 }
