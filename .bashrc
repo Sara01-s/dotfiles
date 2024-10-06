@@ -16,7 +16,10 @@ alias ls='eza --icons --color=always --group-directories-first'
 alias ll='eza -alF --icons --color=always --group-directories-first'
 alias la='eza -a --icons --color=always --group-directories-first'
 alias l='eza -F --icons --color=always --group-directories-first'
-alias l.='eza -a | egrep "^\."'						
+alias l.='eza -a | egrep "^\."'
+
+
+alias rm='trash' # use trash-cli to prevent deleting stuff permanently
 
 # colorize grep.
 alias grep='grep --color=auto'
@@ -58,3 +61,7 @@ eval "$(starship init bash)"
 # Setup zoxide to replace cd command.
 # if you don't want this behaviour, delete '--cmd cd' ('z' will be used instead).
 eval "$(zoxide init --cmd cd bash)"
+
+# secret aliases
+alias blender="prime-run blender"
+alias minecraft-launcher="prime-run minecraft-launcher"

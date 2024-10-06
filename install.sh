@@ -90,7 +90,7 @@ install thunar		"thunar is a GUI file explorer."
 install viu			"viu is used to view images and gif inside the terminal."
 install neofetch	"neofetch is used to view system specifications in the terminal."
 install wofi		"wofi is a wayland application runner, see hyprland.conf to check it's keybind."
-
+install trash-cli   "trash-cli is used instead of 'rm' to prevent deleting stuff permanently"
 echo ""
 
 # Hyprpanel
