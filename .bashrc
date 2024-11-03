@@ -65,3 +65,5 @@ eval "$(zoxide init --cmd cd bash)"
 # secret aliases
 alias blender="prime-run blender"
 alias minecraft-launcher="prime-run minecraft-launcher"
+
+export UNITY_DISPLAY_SERVER=x11
